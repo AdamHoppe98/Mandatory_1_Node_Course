@@ -1,0 +1,26 @@
+{
+  "name": "mandatory-1",
+  "version": "0.0.1",
+  "description": "aflevering",
+  "keywords": [
+    "Mandatory"
+  ],
+  "homepage": "https://github.com/AdamHoppe98/Mandatory_1_Node_Course#readme",
+  "bugs": {
+    "url": "https://github.com/AdamHoppe98/Mandatory_1_Node_Course/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/AdamHoppe98/Mandatory_1_Node_Course.git"
+  },
+  "license": "ISC",
+  "author": "Adam",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
