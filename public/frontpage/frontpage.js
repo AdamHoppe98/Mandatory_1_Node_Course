@@ -1,6 +1,4 @@
-import { Marked } from "https://cdn.jsdelivr.net/npm/marked/+esm";
-import { markedHighlight } from "https://cdn.jsdelivr.net/npm/marked-highlight/+esm";
-import hljs from "https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/+esm";
+
 
 
 init()
@@ -22,47 +20,23 @@ async function getMarkdownFiles() {
 }
 
 
-const marked = new Marked(
-    markedHighlight({
-        emptyLangClass: 'hljs',
-        langPrefix: 'hljs language-',
-        highlight(code, lang, info) {
-            const language = hljs.getLanguage(lang) ? lang : 'plaintext';
-            return hljs.highlight(code, { language }).value;
-        }
-    })
-);
-
 function init() {
     createHeader()
-    const homeElement = document.getElementById("home")
-
-    const homePath = "/frontpage/frontpage.md"
-    homeElement.addEventListener("click", event => {
-        event.preventDefault();
-        renderContent(homePath)
-    })
-    renderContent(homePath)
 }
 
-function navigateTo(button, path) {
-    const buttons = document.querySelectorAll("button");
-    renderContent(path)
-    setActiveButton(button, buttons)
-}
-
-function setActiveButton(activeButton, buttons) {
-    buttons.forEach(button => button.classList.remove("buttonHighlight"));
-    activeButton.classList.add("buttonHighlight");
-}
 
 function createButton(name, fileName) {
     const buttonElement = document.createElement("button");
     buttonElement.classList.add("navButtons");
     buttonElement.textContent = name;
-    buttonElement.id = name;
+    buttonElement.id = fileName;
 
-    buttonElement.addEventListener("click", () => navigateTo(buttonElement, `/assets/markdownFiles/${fileName}`))
+    const urlSplitted = location.href.split("/");    
+    if (urlSplitted[3] === fileName) {
+        buttonElement.classList.add("buttonHighlight");
+    }
+
+    buttonElement.addEventListener("click", () => location.href = `/${fileName}`)
 
     return buttonElement;
 }
@@ -97,14 +71,3 @@ function formatFileNameAsLabel(fileName) {
     return name.charAt(0).toUpperCase() + name.slice(1)
 }
 
-async function renderContent(path) {
-    try {
-        const response = await fetch(path);
-        if (!response.ok) throw new Error(`Could not load ${path}`);
-        const md = await response.text();
-        document.getElementById("main").innerHTML = marked.parse(md);
-
-    } catch (error) {
-        document.getElementById("main").textContent = error.message;
-    }
-}

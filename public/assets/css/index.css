@@ -82,3 +82,31 @@ footer {
     top: 97%;
     right: 50%;
 }
+
+
+table {
+    border-collapse: collapse;
+    margin: 1rem auto; 
+
+}
+
+table,
+th,
+td {
+    border: 1px solid gray;
+
+}
+
+th,
+td {
+    padding: 0.4em 1em;
+}
+
+th {
+    text-align: center;
+    color: #fff;
+}
+
+p {
+    color: #e6e6e6;
+}
