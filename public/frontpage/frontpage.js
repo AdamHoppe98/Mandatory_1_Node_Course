@@ -26,19 +26,22 @@ function init() {
 
 
 function createButton(name, fileName) {
+    const borderButtomHighlight = document.createElement("div");
+    borderButtomHighlight.classList.add("navPadding")
     const buttonElement = document.createElement("button");
     buttonElement.classList.add("navButtons");
     buttonElement.textContent = name;
     buttonElement.id = fileName;
-
+    
     const urlSplitted = location.href.split("/");    
     if (urlSplitted[3] === fileName) {
+        borderButtomHighlight.id = "borderButtomHighlight";
         buttonElement.classList.add("buttonHighlight");
     }
 
     buttonElement.addEventListener("click", () => location.href = `/${fileName}`)
-
-    return buttonElement;
+    borderButtomHighlight.appendChild(buttonElement);
+    return borderButtomHighlight;
 }
 
 function sortFiles(fileA, fileB) {

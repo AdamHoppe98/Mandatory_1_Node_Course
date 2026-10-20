@@ -1,7 +1,6 @@
 import express from 'express';
 import { execSync } from 'child_process';
-import { constructPage } from './templatingEngine/pages.js';
-
+import { constructPage } from './templatingEngine/createPages.js';
 
 const app = express();
 app.use(express.json())

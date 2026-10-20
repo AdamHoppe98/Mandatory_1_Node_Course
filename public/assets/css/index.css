@@ -30,12 +30,9 @@ nav {
     cursor: pointer;
     color: #6CC24A;
     background-color: #363636;
-
+    border-radius: 5px;
 }
 
-.buttonHighlight {
-    color: #6CC24A;
-}
 
 .navButtons:focus-visible {
     outline: none;
@@ -69,44 +66,10 @@ main :not(pre)>code {
     border-radius: 4px;
 }
 
-footer {
-    color: white;
-    background-color: black;
-    text-align: center;
-    margin-bottom: 0;
-    padding: 20px 0;
-}
-
-#cats {
-    position: absolute;
-    top: 97%;
-    right: 50%;
-}
-
-
-table {
-    border-collapse: collapse;
-    margin: 1rem auto; 
-
-}
-
-table,
-th,
-td {
-    border: 1px solid gray;
-
-}
-
-th,
-td {
-    padding: 0.4em 1em;
-}
-
-th {
-    text-align: center;
-    color: #fff;
-}
-
 p {
     color: #e6e6e6;
+}
+
+.image-height-small {
+    height: 2.5rem;
 }
