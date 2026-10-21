@@ -38,7 +38,7 @@ function createButton(name, fileName) {
         borderButtomHighlight.id = "borderButtomHighlight";
         buttonElement.classList.add("buttonHighlight");
     }
-
+    
     buttonElement.addEventListener("click", () => location.href = `/${fileName}`)
     borderButtomHighlight.appendChild(buttonElement);
     return borderButtomHighlight;
